@@ -1,5 +1,5 @@
 # TicTacToe
-## Klassendiagramm
+## Klassendiagramm :)
 ![Klassendiagramm](ClassDiagram.png)
 
 ## Entwicklungsumgebung einrichten
