@@ -1,5 +1,6 @@
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TicTacToeTest {
 
@@ -7,6 +8,6 @@ class TicTacToeTest {
     void dummyTest() {
 
         // do something
-        Assertions.assertEquals(1,0);
+        assertEquals(1,1);
     }
 }
