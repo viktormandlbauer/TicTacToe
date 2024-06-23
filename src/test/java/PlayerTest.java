@@ -1,15 +1,33 @@
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class PlayerTest {
 
-    @Test
-    void getMarker() {
-        Player playerX = new Player('X');
-        Player playerO = new Player('O');
+    private Player player;
 
-        assertEquals('X', playerX.getMarker());
-        assertEquals('O', playerO.getMarker());
+    @Test
+    public void testGetMarker1() {
+        player = new Player('X');
+        assertEquals('X', player.getMarker());
+    }
+
+    @Test
+    public void testGetMarker2() {
+        player = new Player('X');
+        assertNotEquals('O', player.getMarker());
+    }
+
+    @Test
+    public void testConstructor_Positive() {
+        player = new Player('O');
+        assertEquals('O', player.getMarker());
+    }
+
+    @Test
+    public void testConstructor_Negative() {
+        player = new Player('O');
+        assertNotEquals('X', player.getMarker());
     }
 }
