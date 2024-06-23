@@ -14,36 +14,62 @@ public class BoardTest {
     }
 
     @Test
-    void testClear(){
-        board.place(0,0,'X');
-        board.clear();
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
-                assertEquals(' ', board.cells[i][j]);
-            }
-        }
+    public void testIsCellEmpty_Positive() {
+        Board board = new Board();
+        assertTrue(board.isCellEmpty(0, 0));  // Testet eine leere Zelle
     }
 
     @Test
-    void testIsCellEmpty(){
-        assertTrue(board.isCellEmpty(0,0));
-        board.place(0,0,'X');
-        assertFalse(board.isCellEmpty(0,0));
+    public void testIsCellEmpty_Negative() {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        assertFalse(board.isCellEmpty(0, 0));  // Testet eine gefüllte Zelle
     }
 
     @Test
-    void testPlace(){
-        board.place(1,1,'X');
-        assertEquals('X', board.cells[1][1]);
+    public void testPlace_Positive() {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        assertEquals('X', board.cells[0][0]);  // Testet das Platzieren eines Markers
     }
 
     @Test
-    void testIsFull(){
-        for (int i = 0; i < 3; i++){
-            for (int j = 0; j < 3; j++){
+    public void testPlace_Negative() {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        assertNotEquals('O', board.cells[0][0]);  // Testet, dass der Marker nicht falsch ist
+    }
+
+    @Test
+    public void testIsFull_Positive() {
+        Board board = new Board();
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
                 board.place(i, j, 'X');
             }
         }
-        assertTrue(board.isFull());
+        assertTrue(board.isFull());  // Testet, dass das Board voll ist
+    }
+
+    @Test
+    public void testIsFull_Negative() {
+        Board board = new Board();
+        assertFalse(board.isFull());  // Testet, dass das Board anfangs nicht voll ist
+    }
+
+    @Test
+    public void testClear_Positive() {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        board.clear();
+        assertTrue(board.isCellEmpty(0, 0));  // Testet, dass das Board nach dem Leeren leer ist
+    }
+
+    @Test
+    public void testClear_Negative() {
+        Board board = new Board();
+        board.place(0, 0, 'X');
+        board.clear();
+        assertFalse(board.cells[0][0] == 'X');  // Testet, dass das Board nach dem Leeren keinen Marker enthält
     }
 }
