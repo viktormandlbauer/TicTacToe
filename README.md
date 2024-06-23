@@ -7,4 +7,4 @@
 2. Projekt clonen 
 3. `mvn install` ausführen
 
-![example workflow](https://github.com/viktormandlbauer/TicTacToe/actions/workflows/maven.yml/badge.svg)
+![example workflow](https://github.com/viktormandlbauer/TicTacToe/actions/workflows/maven-dev.yml/badge.svg)
